@@ -1,0 +1,40 @@
+<div class="d-flex db-highlight">
+    <div class="p-2 w-100 bd-highlight">
+        <section class="py-5 text-center">
+            <div class="container">
+                <h1 class="fw-light">Bienvenue sur AllTrue</h1>
+                <p class="lead">La vérité triomphe toujours avec AllTrue.</p>
+                <form #f="ngForm" class="form-inline justify-content-center" (ngSubmit)="onCherche(f.value.text)">
+                    <div class="form-group d-flex flex-row">
+                        <input type="text" name="text" class="form-control mr-2" placeholder="Entrez le titre" ngModel>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="p-2 flex-shrink-1 bd-highlight">
+        <div class="album py-5 bg-light p-2 w-100 bd-highlight">
+            <div class="container">
+                <h1 class="fw-light" style="display: flex;
+                justify-content: center;">Historiques</h1>
+
+                <div class="row row-cols-1 row-cols-sm-2 " style="justify-content: center;">
+                    <div class="col">
+                        <div >
+                            <ul class="list-group" *ngFor="let titre of historiques">
+                                <li style="margin-bottom: 10px;" class="list-group-item">
+                                    {{titre.news.titre}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="separation"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

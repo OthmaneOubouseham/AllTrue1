@@ -1,0 +1,68 @@
+<div class="main" id="main">
+    <div class="pagetitle">
+        <h1>Administrateur</h1>
+        
+    </div>
+    <div class="col-lg-8">
+        <div class="row">
+
+            <!-- Doctor Card -->
+            <div class="col-xxl-4 col-md-6">
+                <div class="card info-card sales-card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre totals des clients </h5>
+
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <div class="icon">
+                                    <img src="../../assets/images/AdminMe.png" alt="">
+                                </div>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{clientsCount}}</h6>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- End Doctor Card -->
+            
+        <div class="col-12">
+            <div class="card top-selling overflow-auto">
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Clients</h5>
+  
+                    <table class="table table-borderless">
+                      <thead>
+                        <tr>
+                          <th scope="col">Client</th>
+                          <th scope="col"></th>
+                          <th scope="col">Numero telephone</th>
+                          <th scope="col">Statut</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let m of clients">
+                        <tr>
+                          <th scope="row" *ngIf="!m.photo"><a href="#"><img src="../../assets/images/img_avatar1.png" alt=""></a></th>
+                          <th scope="row" *ngIf="m.photo"><img style="width: 45px; height: 45px"
+                            class="rounded-circle" [src]="m.photo" alt=""></th>
+                          <td class="text-primary fw-bold">{{m.prenom}} {{m.nom}}</td>
+                          <td class="fw-bold">{{m.numTel}}</td>
+                          <td *ngIf="m.statut" class="text-decoration-none"><i class="bi bi-person-check"></i>
+                          </td>
+                          <td *ngIf="!m.statut" class="text-decoration-none"><i class="bi bi-person-slash"></i>
+                          </td>
+                          <td *ngIf="m.statut"><button class="btn btn-outline-danger" (click)="onOff(m.email)"><i class="bi bi-lock-fill"></i></button></td>
+                          <td *ngIf="!m.statut"><button class="btn btn-outline-success" (click)="onOn(m.email)"><i class="bi bi-unlock"></i></button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+            </div>
+        </div>
+        
+</div>
+

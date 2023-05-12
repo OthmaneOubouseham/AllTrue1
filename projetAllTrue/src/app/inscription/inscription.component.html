@@ -1,0 +1,125 @@
+<div>
+    <div class="formConnexion bloc-card" style=" margin-left: 247px;margin-right: 211px; height: 554px; margin-top: 100px;">
+        <h1>Formulaire d'inscription</h1>
+        <br/>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form ">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-5"> <label for="validationTooltip01" class="form-label">Prènom</label></div>
+                            <div class="col-7"><input formControlName="prenom"
+                                    [ngClass]="{'is-invalid':submitted && registerForm.controls['prenom'].errors}" class="form-control"
+                                    type="text" #prenom name="prenom" placeholder="Prénom" [(ngModel)]="connexionModel.prenom">
+                                <div class="text-danger" *ngIf="submitted && registerForm.controls['prenom'].errors?.['required']">
+                                    Prènom non valide
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5"> <label>Nom</label></div>
+                            <div class="col-7"><input type="text" class="form-control" #nom formControlName="nom"
+                                    [ngClass]="{'is-invalid':submitted && registerForm.controls['nom'].errors}" name="nom"
+                                    placeholder="Nom" [(ngModel)]="connexionModel.nom">
+                                <div class="text-danger" *ngIf="submitted && registerForm.controls['nom'].errors?.['required']">
+                                    Nom non valide
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5"> <label>Deuxième prènom</label></div>
+                            <div class="col-7"><input type="text" class="form-control"  name="deuxiemeprenom"
+                                    placeholder="Deuxième Prenom" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5"><label>Sexe</label></div>
+                            <div class="col-7"><select #sexe="ngModel" [class.is-invalid]="sexe.invalid && sexe.touched" name="sexe"
+                                    [(ngModel)]="connexionModel.sexe" style="border-radius: 6px;">
+                                    <option value="">-- Choisissez une option --</option>
+                                    <option *ngFor="let sexe of tabSexe">{{sexe}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5"><label>numTeléro téléphone</label></div>
+                            <div class="col-7"><input type="text" class="form-control" #numTel formControlName="numTel"
+                                    [ngClass]="{'is-invalid':submitted && registerForm.controls['numTel'].errors}" name="numTel"
+                                    placeholder="Adresse" [(ngModel)]="connexionModel.numTel">
+                                <div class="text-danger" *ngIf="submitted && registerForm.controls['numTel'].errors?.['required']">
+                                    numTelero non valide
+                                </div>
+                            </div>
+                
+                        </div>
+                        </div>
+                        <div class="col-2"></div>
+                        <!-- </div>
+                                <div class="ecran"> -->
+                        <div class="col-5">
+                            <div class="row">
+                                <div class="col-5"><label>Ville de naissance</label></div>
+                                <div class="col-7"><input type="text" class="form-control" #ville formControlName="ville"
+                                        [ngClass]="{'is-invalid':submitted && registerForm.controls['ville'].errors}" name="ville"
+                                        placeholder="Ville" >
+                                    <div class="text-danger" *ngIf="submitted && registerForm.controls['ville'].errors?.['required']">
+                                        Ville non valide
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5"><label>Adresse de résidence</label></div>
+                                <div class="col-7"><input type="text" class="form-control" #adresse formControlName="adresse"
+                                        [ngClass]="{'is-invalid':submitted && registerForm.controls['adresse'].errors}" name="adresse"
+                                        placeholder="Adresse de résidence" [(ngModel)]="connexionModel.adresse">
+                                    <div class="text-danger" *ngIf="submitted && registerForm.controls['adresse'].errors?.['required']">
+                                        Adresse non valide
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5"><label>Code Postale</label></div>
+                                <div class="col-7"><input type="text" class="form-control" #codePostal formControlName="codePostal"
+                                        [ngClass]="{'is-invalid':submitted && registerForm.controls['codePostal'].errors}"
+                                        name="codePostal" placeholder="Adresse" >
+                                    <div class="text-danger"
+                                        *ngIf="submitted && registerForm.controls['codePostal'].errors?.['required']">
+                                        Code Postale non valide
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5"><label>Email</label></div>
+                                <div class="col-7"><input type="text" class="form-control" #email formControlName="email"
+                                        [ngClass]="{'is-invalid':submitted && registerForm.controls['email'].errors}" name="email"
+                                        placeholder="Email" [(ngModel)]="connexionModel.email">
+                                    <div class="text-danger" *ngIf="submitted && registerForm.controls['email'].errors?.['required']">
+                                        Email non valide
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5"><label>Mode de passe</label></div>
+                                <div class="col-7"><input type="password" class="form-control" #modePasse formControlName="modePasse"
+                                        [ngClass]="{'is-invalid':submitted && registerForm.controls['modePasse'].errors}"
+                                        name="modePasse" placeholder="Mode de Passe" [(ngModel)]="connexionModel.password">
+                                    <div class="text-danger"
+                                        *ngIf="submitted && registerForm.controls['modePasse'].errors?.['required']">
+                                        Mode passe non valide
+                                    </div>
+                                </div>
+                            </div>
+                
+                        </div>
+                    
+                    <button class="btn-danger" type="submit" style="--bs-btn-bg: #0378d5c9; background-color: #0378d5c9;
+                            --bs-btn-border-color: #fff;">S'inscrire</button>
+                    <br />
+                    <br />
+                </div>
+                <br />
+                <br />
+                </div>
+        </form>
+    </div>
+</div>
