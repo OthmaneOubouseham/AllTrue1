@@ -23,6 +23,8 @@ public class ImageNews {
 	private String type;
 	@ManyToOne
 	private News news;
+	@ManyToOne
+	private Utilisateur utilisateur;
 	@Lob
 	private byte[] imageData;
 	public byte[] getImageData() {

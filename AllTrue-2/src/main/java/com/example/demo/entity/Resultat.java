@@ -30,6 +30,7 @@ public class Resultat {
 	@OneToMany(mappedBy = "resultat")
 	private Collection<Document> documents;
 	
+	
 	public void chercherInfo(String titre) {
 		News news = new News();
 		news.setTitre(titre);

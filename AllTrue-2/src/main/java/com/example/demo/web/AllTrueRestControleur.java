@@ -14,15 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dao.ImageNewsRepository;
 import com.example.demo.entity.Client;
 import com.example.demo.entity.ImageNews;
+import com.example.demo.entity.News;
 import com.example.demo.entity.Resultat;
 import com.example.demo.entity.Utilisateur;
 import com.example.demo.service.AllTrueInitServiceImp;
+import com.example.demo.vo.ImageVO;
 import com.example.demo.vo.User;
 
 @CrossOrigin("*")
@@ -56,8 +59,8 @@ public class AllTrueRestControleur {
 		this.service.lancerRecher(titre);
 	}
 	@GetMapping("/historiques")
-	public List<Resultat> getHistoriques(){
-		return this.service.historique();
+	public List<News> getHistoriques(@RequestParam String email){
+		return this.service.historique(email);
 	}
 	@GetMapping("/clients")
 	public List<Client> getClients(){
@@ -77,9 +80,10 @@ public class AllTrueRestControleur {
 		
 	}
 	@PostMapping("/uploadImage")
-	public ResponseEntity<?> uploadImafe(@RequestParam MultipartFile file) throws IOException{
-		String imageName = service.uploadImage(file);
-		return ResponseEntity.status(HttpStatus.OK).body(imageName);
+	public String uploadImage(@RequestPart("image") MultipartFile image, @RequestParam("email") String email) throws IOException{
+//		MultipartFile file = image.getFile();
+//		String email = image.getEmail();
+		return service.uploadImage(image, email);
 	}
 	@GetMapping("/downloadImage/{ImageName}")
 	public ResponseEntity<?> downloadImage(@PathVariable String ImageName){

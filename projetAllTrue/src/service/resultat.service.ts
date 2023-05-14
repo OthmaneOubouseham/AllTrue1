@@ -7,6 +7,7 @@ import {ConnexionService} from 'src/service/connexion.service';
 })
 export class ResultatService {
   public host:string="http://localhost:8091"
+  email:any
   constructor(private http: HttpClient, private serviceJWT: ConnexionService) { }
 
   chercher(titre:string){
@@ -15,7 +16,7 @@ export class ResultatService {
   }
   historique(){
     let heards = new HttpHeaders({'authorization':'Bearer '+ this.serviceJWT.jwt})
-
-    return this.http.get(this.host+"/historiques", {headers:heards})
+    this.email = this.serviceJWT.email
+    return this.http.get(this.host+"/historiques?email="+this.email, {headers:heards})
   }
 }

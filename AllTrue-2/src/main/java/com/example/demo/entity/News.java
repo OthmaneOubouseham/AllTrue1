@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.transaction.Transactional;
 
@@ -24,9 +25,12 @@ public class News {
 	private long id;
 	private String titre;
 	@OneToMany(mappedBy = "news")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<ImageNews> imageNews;
 	@OneToMany(mappedBy = "news")
 	@JsonProperty(access=Access.WRITE_ONLY)
 	private Collection<Resultat> resultat;
+	@ManyToOne
+	private Utilisateur utilisateur;
 
 }

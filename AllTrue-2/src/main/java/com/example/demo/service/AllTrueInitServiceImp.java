@@ -103,13 +103,19 @@ public class AllTrueInitServiceImp implements AllTrueInitServie{
 		return null;
 	}
 	@Override
-	public List<Resultat> historique() {
-		List<Resultat> historiques = new ArrayList<>();
-		resultatrepository.findAll().forEach(re->{
-			historiques.add(re);
+	public List<News> historique(String email) {
+		List<News> historiques = new ArrayList<>();
+		Utilisateur user = utilisateurRepository.findUtilisateurByEmail(email);
+		long id = user.getId();
+		newsRepository.findAll().forEach(n->{
+			if(n.getUtilisateur().getId() == id) {
+				historiques.add(n);
+			}
 		});
 		return historiques;
-	}
+
+		}
+	
 	@Override
 	public List<Client> getClients() {
 		List<Client> clients = new ArrayList<>();
@@ -140,10 +146,12 @@ public class AllTrueInitServiceImp implements AllTrueInitServie{
 		return "Statut de l'utilisateur "+ email+" est modifier !";
 	}
 	@Override
-	public String uploadImage(MultipartFile file) throws IOException {
+	public String uploadImage(MultipartFile file, String email) throws IOException {
+		Utilisateur user = utilisateurRepository.findUtilisateurByEmail(email);		
 		ImageNews image =  imageNews.save(ImageNews.builder()
 				.name(file.getOriginalFilename())
 				.type(file.getContentType())
+				.utilisateur(user)
 				.imageData(ImageUtils.compressImage(file.getBytes())).build());
 		if(image !=null) {
 			return "l'image à bien etais télécharger: "+file.getOriginalFilename();

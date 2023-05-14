@@ -31,6 +31,7 @@ export class RechercheComponent implements OnInit {
     .subscribe(data=>{
       console.log(data)
       this.historiques = data
+      console.log(this.historiques)
 
     },err=>{
 

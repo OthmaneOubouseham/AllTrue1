@@ -14,6 +14,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -51,5 +52,11 @@ public class Utilisateur {
 	@JsonProperty(access=Access.WRITE_ONLY)
 	@ManyToMany(fetch=FetchType.EAGER)
 	private Collection<Role> roles = new ArrayList<>();
+	@OneToMany(mappedBy ="utilisateur")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private Collection<News> news;
+	@OneToMany(mappedBy = "news")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private Collection<ImageNews> imageNews;
 
 }
