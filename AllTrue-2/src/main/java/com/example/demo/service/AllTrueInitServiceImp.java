@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.awt.Image;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,6 +25,7 @@ import com.example.demo.entity.Resultat;
 import com.example.demo.entity.Role;
 import com.example.demo.entity.Utilisateur;
 import com.example.demo.util.ImageUtils;
+import com.example.demo.vo.ImageVO;
 
 @CrossOrigin("*")
 @Service
@@ -164,5 +164,25 @@ public class AllTrueInitServiceImp implements AllTrueInitServie{
 		byte[] imageFinal = ImageUtils.decompressImage(dbImage.getImageData());
 		return imageFinal;
 	}
-
+	@Override
+	public ImageVO getProfil(String email) {
+		Utilisateur user = utilisateurRepository.findUtilisateurByEmail(email);
+		String imageName = user.getImageName();
+		ImageVO userVO = new ImageVO();
+		imageNews.findAll().forEach(i->{
+			long idUser = user.getId();
+			if(i.getUtilisateur() == null) {userVO.setFile(null);}
+			if(i.getUtilisateur().getId() == idUser) {
+				userVO.setFile(i.getImageData());
+			}
+			else {
+				userVO.setFile(null);
+			}
+		});
+		userVO.setProfile(user);
+		
+		
+		return userVO;
+	}
+	
 }

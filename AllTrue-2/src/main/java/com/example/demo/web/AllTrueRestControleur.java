@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,7 +23,6 @@ import com.example.demo.dao.ImageNewsRepository;
 import com.example.demo.entity.Client;
 import com.example.demo.entity.ImageNews;
 import com.example.demo.entity.News;
-import com.example.demo.entity.Resultat;
 import com.example.demo.entity.Utilisateur;
 import com.example.demo.service.AllTrueInitServiceImp;
 import com.example.demo.vo.ImageVO;
@@ -93,6 +93,13 @@ public class AllTrueRestControleur {
 		return ResponseEntity.status(HttpStatus.OK)
 				.contentType(MediaType.valueOf(dbImage.getType()))
 				.body(imageData);
+	}
+	@GetMapping("/getProfile")
+	@ResponseBody
+	public ImageVO getProfile(@RequestParam("email") String email) {
+		
+		return this.service.getProfil(email);
+		
 	}
 	
 	

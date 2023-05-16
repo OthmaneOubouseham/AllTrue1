@@ -11,6 +11,7 @@ import com.example.demo.entity.News;
 import com.example.demo.entity.Resultat;
 import com.example.demo.entity.Role;
 import com.example.demo.entity.Utilisateur;
+import com.example.demo.vo.ImageVO;
 
 public interface AllTrueInitServie {
 	public Utilisateur inscription(String nom, String prenom, String email, String numTel, String sexe, String password, String adresse, Date dateInscription);
@@ -26,5 +27,6 @@ public interface AllTrueInitServie {
 	public long getCountClient();
 	public String uploadImage(MultipartFile file, String email) throws IOException;
 	public byte[] downoalImage(String fileName);
+	public ImageVO getProfil(String email);
 	
 }
