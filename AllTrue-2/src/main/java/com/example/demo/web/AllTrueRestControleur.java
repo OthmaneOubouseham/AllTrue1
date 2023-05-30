@@ -1,9 +1,15 @@
 package com.example.demo.web;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -101,6 +107,27 @@ public class AllTrueRestControleur {
 		return this.service.getProfil(email);
 		
 	}
+	@GetMapping("/googleSearch")
+    public String performSearch(@RequestParam String query) {
+        try {
+        	String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8.toString());
+            // Effectuer une requête vers Google
+            Document doc = Jsoup.connect("https://www.google.com/search?q=" + encodedQuery).get();
+            // Extraire les résultats de recherche
+            Elements results = doc.select("div.g");
+            StringBuilder response = new StringBuilder();
+            // Parcourir les résultats et les ajouter à la réponse
+            for (Element result : results) {
+                String title = result.select("h3").text();
+                String url = result.select("a[href]").attr("href");
+                response.append(title).append(" - ").append(url).append("\n");
+            }
+            return response.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Erreur lors de la recherche.";
+        }
+    }
 	
 	
 

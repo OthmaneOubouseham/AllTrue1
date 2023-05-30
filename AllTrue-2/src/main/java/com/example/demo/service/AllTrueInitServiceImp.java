@@ -185,4 +185,5 @@ public class AllTrueInitServiceImp implements AllTrueInitServie{
 		return userVO;
 	}
 	
+
 }
