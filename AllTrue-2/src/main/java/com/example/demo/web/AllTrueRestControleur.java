@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import com.example.demo.dao.ImageNewsRepository;
 import com.example.demo.entity.Client;
 import com.example.demo.entity.ImageNews;
@@ -33,6 +34,7 @@ import com.example.demo.entity.Utilisateur;
 import com.example.demo.service.AllTrueInitServiceImp;
 import com.example.demo.vo.ImageVO;
 import com.example.demo.vo.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @CrossOrigin("*")
 @RestController
@@ -61,8 +63,8 @@ public class AllTrueRestControleur {
 		
 	}
 	@PostMapping("/cherche")
-	public void Chercher(@RequestBody String titre) {
-		this.service.lancerRecher(titre);
+	public void Chercher(@RequestBody String titre, @RequestParam String email) {
+		this.service.lancerRecher(titre, email);
 	}
 	@GetMapping("/historiques")
 	public List<News> getHistoriques(@RequestParam String email){
@@ -122,7 +124,11 @@ public class AllTrueRestControleur {
                 String url = result.select("a[href]").attr("href");
                 response.append(title).append(" - ").append(url).append("\n");
             }
-            return response.toString();
+            String text = response.toString();
+            ObjectMapper objectMapper = new ObjectMapper();
+            String json = objectMapper.writeValueAsString(text);
+            
+            return json;
         } catch (Exception e) {
             e.printStackTrace();
             return "Erreur lors de la recherche.";

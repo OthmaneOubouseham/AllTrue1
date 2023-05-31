@@ -12,11 +12,15 @@ export class ResultatService {
 
   chercher(titre:string){
     let heards = new HttpHeaders({'authorization':'Bearer '+ this.serviceJWT.jwt})
-    return this.http.post(this.host+"/cherche", titre,{headers:heards})
+    return this.http.post(this.host+"/cherche?email="+this.serviceJWT.email, titre,{headers:heards})
   }
   historique(){
     let heards = new HttpHeaders({'authorization':'Bearer '+ this.serviceJWT.jwt})
     this.email = this.serviceJWT.email
     return this.http.get(this.host+"/historiques?email="+this.email, {headers:heards})
+  }
+  googleSearch(titre:string){
+    let heards = new HttpHeaders({'authorization':'Bearer '+ this.serviceJWT.jwt})
+    return this.http.get(this.host+"/googleSearch?query="+titre,{headers:heards})
   }
 }

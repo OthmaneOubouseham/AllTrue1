@@ -18,7 +18,7 @@ public interface AllTrueInitServie {
 	public Role save(Role role);
 	public Utilisateur loadUserByUsername(String username);
 	public void addRoleToUser(String email, String rolename);
-	public void lancerRecher(String titre);
+	public void lancerRecher(String titre, String email);
 	public Resultat getResultat();
 	public List<News> historique(String email);
 	public List<Client> getClients();

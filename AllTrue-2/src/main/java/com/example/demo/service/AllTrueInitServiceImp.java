@@ -88,9 +88,11 @@ public class AllTrueInitServiceImp implements AllTrueInitServie{
 		user.getRoles().add(role);
 	}
 	@Override
-	public void lancerRecher(String titre) {
+	public void lancerRecher(String titre, String email) {
 		News news = new News();
 		news.setTitre(titre);
+		Utilisateur user = utilisateurRepository.findUtilisateurByEmail(email);
+		news.setUtilisateur(user);
 		Resultat resultat = new Resultat();
 		resultat.setNews(news);
 		newsRepository.save(news);
