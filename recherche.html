@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllTrue</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="page_connexion.css">
+  </head>
+  
+
+
+  <body>
+    <!-- barre de navigation -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="" id="navbar__logo"> AllTrue </a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="" class="navbar__links" id="home-page">Accueil</a>
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__links" id="services-page"
+              >Abonnements</a >
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__links" id="about-page">A propos</a>
+          </li>
+          
+          
+          <li class="navbar__btn">
+            <a href="" class="button" id="signup">Inscription</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="" class="button" id="signup">Connexion</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="recherche.css">
+</head>
+<body>
+  <div class="container">
+    <div class="search-container"> 
+      <form id="search-form"><h2>Recherche</h2>
+        <input type="text" id="search-input" placeholder="Saisir votre texte" />
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+    <div class="history-container" id="history-container">
+        <h2>Historique</h2>
+    
+    </div>
+  </div>
+
+</body>
+
+<br><br>
+
+
+  </body>
+</html>
+
+
+
+
+</html>
+
+<script>
+document.getElementById("search-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
+  
+    var searchInput = document.getElementById("search-input");
+    var searchQuery = searchInput.value;
+  
+    if (searchQuery.trim() !== "") {
+      var historyContainer = document.getElementById("history-container");
+      var newSearchItem = document.createElement("p");
+      newSearchItem.textContent = "Requette: " + searchQuery;
+      historyContainer.appendChild(newSearchItem);
+      searchInput.value = "";
+    }
+  });
+  </script>
+
+
+
+

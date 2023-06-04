@@ -1,0 +1,267 @@
+
+
+html {
+    background: #FBFFDC;
+}
+ 
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: -webkit-linear-gradient(to right, #6be6c9, #6be6a8,#D0F5BE);
+    background: linear-gradient(to right, #6be6c9, #6be6a8, #D0F5BE);
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+
+.navbar {
+    background: #98EECC;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  #navbar__logo {
+    background-color:#6be6a8;
+    
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+   
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+  }
+  
+#container{
+        width:400px;
+        margin:0 auto;
+        margin-top:10%;
+    }
+    /* Bordered form */
+    form {
+        width:100%;
+        padding: 30px;
+        border: 1px solid #f1f1f1;
+        background: #fff;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    #container h1{
+        
+        margin: 0 auto;
+        padding-bottom: 10px;
+    }
+    
+    /* Full-width inputs */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    
+    
+    
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar__item {
+  height: 80px;
+}
+
+.navbar__links {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  text-decoration: none;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+
+
+
+@media screen and (max-width: 960px) {
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0;
+  }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+
+ 
+
+  #navbar__logo {
+    padding-left: 25px;
+  }
+
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+  }
+
+  .navbar__item {
+    width: 100%;
+  }
+
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .navbar__btn {
+    padding-bottom: 2rem;
+  }
+
+ 
+
+}
+
+
+
+
+
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    
+
+}
+.section-header {
+    font-family: "cursive";
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.about-band-image {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+
+
+.title{
+    color : white
+}
+ 
+
+
+
+/* chat section*/
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    
+
+}
+.container {
+  display: flex;
+  margin-top: 50px; /* Marge supérieure pour abaisser légèrement le formulaire et la partie historique */
+}
+
+.search-container {
+  flex: 1;
+  padding: 10px;
+  margin-bottom: 10px; /* Marge inférieure pour abaisser légèrement le formulaire */
+}
+
+.history-container {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  max-height: 300px; /* Hauteur maximale de la partie historique */
+  margin-top: 10px; /* Marge supérieure pour abaisser légèrement la partie historique */
+  margin-bottom: 10px; /* Marge inférieure pour abaisser légèrement la partie historique */
+}
+
+
+
+
+
+
+

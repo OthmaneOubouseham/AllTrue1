@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllTrue</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="page_connexion.css">
+  </head>
+  
+
+
+  <body>
+    <!-- barre de navigation -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="" id="navbar__logo"> AllTrue </a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="" class="navbar__links" id="home-page">Accueil</a>
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__links" id="services-page"
+              >Abonnements</a >
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__links" id="about-page">A propos</a>
+          </li>
+          
+          
+          <li class="navbar__btn">
+            <a href="" class="button" id="signup">Inscription</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="" class="button" id="signup">Connexion</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="container">
+        <!-- zone de connexion -->
+        
+        <form action="verification.php" method="POST">
+           <div id="connexion"><h1>Connexion</h1></div> 
+            
+            <label><h3>Nom d'utilisateur</h3></label>
+            <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+            <label><h3>Mot de passe</h3></label>
+            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+            <input type="submit" id='submit' value='LOGIN' >
+          
+        </form>
+    </div>
+</body>
+
+
+<br><br>
+
+    <!-- Pied de page-->
+    <div class="footer__container">
+      <div class="footer__links">
+        <div class="footer__link--wrapper">
+          <div class="footer__link--items">
+            <h2> A propos </h2>
+            <a href="/sign__up">Qui sommes nous?</a> 
+            <a href="/">Nos services</a>
+          </div>
+          <div class="footer__link--items">
+            <h2>Nous contacter</h2>
+            <a href="/">Contact</a> <a href="/">Support</a>
+          </div>
+        </div>
+          <div class="footer__link--items">
+            <h2> Nos partenaires certifiés</h2>
+            <a href="/">Le monde</a> <a href="/">journal 2</a>
+            <a href="/">journal 1</a> <a href="/">journal 3</a>
+          </div>
+        </div>
+      </div>
+      <section class="social__media">
+        <div class="social__media--wrap">
+          <div class="footer__logo">
+            <a href="/" id="footer__logo">AllTrue</a>
+          </div>
+          <p class="website__rights">©️ AllTrue 2023. All rights reserved</p>
+          <div class="social__icons">
+            <a href="/" class="social__icon--link" target="_blank"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="/" class="social__icon--link"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="/" class="social__icon--link"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a href="/" class="social__icon--link"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="/" class="social__icon--link"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </body>
+</html>
+
+
+
