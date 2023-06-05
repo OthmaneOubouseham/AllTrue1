@@ -94,7 +94,7 @@ document.getElementById("search-form").addEventListener("submit", function(event
     if (searchQuery.trim() !== "") {
       var historyContainer = document.getElementById("history-container");
       var newSearchItem = document.createElement("p");
-      newSearchItem.textContent = "Requette: " + searchQuery;
+      newSearchItem.textContent = "Requete: " + searchQuery;
       historyContainer.appendChild(newSearchItem);
       searchInput.value = "";
     }
