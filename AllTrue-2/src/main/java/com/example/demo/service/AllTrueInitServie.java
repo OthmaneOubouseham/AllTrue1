@@ -28,5 +28,7 @@ public interface AllTrueInitServie {
 	public String uploadImage(MultipartFile file, String email) throws IOException;
 	public byte[] downoalImage(String fileName);
 	public ImageVO getProfil(String email);
+	public String getHistorique(String texte);
+	public void saveResultat(String json,String query);
 	
 }

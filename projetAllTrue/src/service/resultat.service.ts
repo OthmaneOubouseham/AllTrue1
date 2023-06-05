@@ -23,4 +23,8 @@ export class ResultatService {
     let heards = new HttpHeaders({'authorization':'Bearer '+ this.serviceJWT.jwt})
     return this.http.get(this.host+"/googleSearch?query="+titre,{headers:heards})
   }
+  getResultat(titre:string){
+    let heards = new HttpHeaders({'authorization':'Bearer '+ this.serviceJWT.jwt})
+    return this.http.get(this.host+"/mesHistoriques?texte="+titre,{headers:heards} )
+  }
 }

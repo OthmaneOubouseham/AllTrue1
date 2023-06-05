@@ -16,8 +16,6 @@ export class ProfileService {
     this.email = this.serviceJWT.email
     let heards = new HttpHeaders({ 'authorization': 'Bearer ' + this.serviceJWT.jwt })
     return this.http.post(this.host+"/uploadImage?email="+this.email, image, { headers: heards })
-
-
   }
 
 }

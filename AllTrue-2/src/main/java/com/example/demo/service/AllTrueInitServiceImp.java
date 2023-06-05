@@ -45,6 +45,7 @@ public class AllTrueInitServiceImp implements AllTrueInitServie{
 	public NewsRepository newsRepository;
 	@Autowired
 	public ImageNewsRepository imageNews;
+	private String resultatHistorique;
 
 
 	@Override
@@ -185,6 +186,35 @@ public class AllTrueInitServiceImp implements AllTrueInitServie{
 		
 		
 		return userVO;
+	}
+	@Override
+	public String getHistorique(String texte) {
+		resultatrepository.findAll().forEach(r->{
+			String t = r.getNews().getTitre();
+			if(t!=null) {
+				if(texte.equals(t)) {
+					this.resultatHistorique = r.getText();
+				}
+			}
+		});
+		return this.resultatHistorique;
+	}
+	@Override
+	public void saveResultat(String json, String query) {
+		if(json != null) {
+        	Resultat resultat = new Resultat();
+        	resultat.setText(json);
+        	newsRepository.findAll().forEach(n->{
+        		String texte = n.getTitre();
+        		if(texte != null) {
+        			if(query.equals(texte)) {
+        				resultat.setNews(n);
+        			}
+        		}
+        	});
+        	resultatrepository.save(resultat);
+        }
+		
 	}
 	
 

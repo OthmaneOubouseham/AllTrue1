@@ -25,6 +25,7 @@ import lombok.NoArgsConstructor;
 public class Resultat {	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private String text;
 	@ManyToOne
 	private News news;
 	@OneToMany(mappedBy = "resultat")

@@ -12,6 +12,7 @@ export class RechercheComponent implements OnInit {
 
   historiques:any
   resources:any
+  resultat:any
   constructor(private router:Router, private toastr: ToastrService, private serviceResultat: ResultatService){}
   ngOnInit(): void {
     this.getHistorique();
@@ -46,6 +47,16 @@ export class RechercheComponent implements OnInit {
       console.log(res)
     },err=>{
       console.log("err: ", err)
+    })
+  }
+  onHistorique(titre:string){
+    this.serviceResultat.getResultat(titre)
+    .subscribe(res=>{
+      console.log(res)
+      this.resources = res
+
+    }, err=>{
+      console.log("err= ", err)
     })
   }
 }

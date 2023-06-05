@@ -25,11 +25,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import com.example.demo.dao.ImageNewsRepository;
+import com.example.demo.dao.NewsRepository;
+import com.example.demo.dao.Resultatrepository;
+import com.example.demo.dao.UtilisateurRepository;
 import com.example.demo.entity.Client;
 import com.example.demo.entity.ImageNews;
 import com.example.demo.entity.News;
+import com.example.demo.entity.Resultat;
 import com.example.demo.entity.Utilisateur;
 import com.example.demo.service.AllTrueInitServiceImp;
 import com.example.demo.vo.ImageVO;
@@ -46,6 +49,12 @@ public class AllTrueRestControleur {
 	public AllTrueInitServiceImp service;
 	@Autowired 
 	public ImageNewsRepository imageNewsRepository;
+	@Autowired
+	public UtilisateurRepository utilisateurRepository;
+	@Autowired
+	public Resultatrepository resultatrepository;
+	@Autowired
+	public NewsRepository newsRepository;
 	
 	@PostMapping("/inscription")
 	public Utilisateur inscrire(@RequestBody User user) {
@@ -127,6 +136,7 @@ public class AllTrueRestControleur {
             String text = response.toString();
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writeValueAsString(text);
+            this.service.saveResultat(json, query);
             
             return json;
         } catch (Exception e) {
@@ -134,6 +144,10 @@ public class AllTrueRestControleur {
             return "Erreur lors de la recherche.";
         }
     }
+	@GetMapping("/mesHistoriques")
+	public String getHistorique(@RequestParam String texte) {
+		return this.service.getHistorique(texte);
+	}
 	
 	
 
